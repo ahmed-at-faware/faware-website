@@ -78,8 +78,8 @@ export default function Hero() {
         {/* ── Left column: copy ── */}
         <div className="hero-content">
           <div className="hero-eyebrow">
-            <span className="eyebrow-badge">Coming Soon</span>
-            <span className="eyebrow-text">Joint accounts now available for all families</span>
+            <span className="eyebrow-badge">DAY-0 INCENTIVE</span>
+            <span className="eyebrow-text">Enjoy extended limits on AI insights throughout the trial period</span>
           </div>
 
           <h1 className="hero-heading">
@@ -87,12 +87,15 @@ export default function Hero() {
           </h1>
 
           <p className="hero-sub">
-            One place to budget together, track spending, set savings goals, and build wealth — for every member of your household.
+            Single platform to save together, track spending, invest into ETFs, and earn returns — for every member of your household.
           </p>
 
           <div className="hero-actions">
-            <button className="btn-primary">
-              Start for free
+            <button className="btn-primary"> 
+              { /* 
+                Same functionality as waitlist.
+            */}
+              Coming Soon
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>

@@ -25,8 +25,8 @@ export default function Navbar() {
         </div>
 
         <div className="nav-right">
-          <button className="btn-ghost-nav">Sign in</button>
-          <button className="btn-nav">Get Started Free</button>
+          {/* <button className="btn-ghost-nav">Sign in</button> */}
+          <button className="btn-nav">Join the Waitlist</button>
         </div>
 
         <button
@@ -39,7 +39,7 @@ export default function Navbar() {
       </nav>
 
       <div className={`mobile-nav${open ? ' open' : ''}`}>
-        <a href="#features" onClick={() => setOpen(false)}>Features</a>
+        <a href="#features" onClick={() => setOpen(true)}>Features</a>
         <a href="#how-it-works" onClick={() => setOpen(false)}>How It Works</a>
         <a href="#pricing" onClick={() => setOpen(false)}>Pricing</a>
         <a href="#faq" onClick={() => setOpen(false)}>FAQ</a>
