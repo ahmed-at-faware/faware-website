@@ -2,7 +2,7 @@ export default function CTASection() {
   return (
     <section className="cta-section">
       <div className="cta-section-inner">
-        <span className="section-kicker" style={{ color: '#86efac' }}>Get Started</span>
+        <span className="section-kicker" style={{ color: 'var(--mint)' }}>Get Started</span>
         <h2>
           Get your family on the <em>same financial page</em>
         </h2>

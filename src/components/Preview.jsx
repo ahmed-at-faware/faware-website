@@ -7,7 +7,7 @@ const budgetRows = [
 ]
 
 const transactions = [
-  { icon: '🛒', bg: 'green-bg', title: 'Whole Foods Market',  meta: 'Today · Groceries',   amt: '−$86.40', cls: 'neg' },
+  { icon: '🛒', bg: 'accent-bg', title: 'Whole Foods Market',  meta: 'Today · Groceries',   amt: '−$86.40', cls: 'neg' },
   { icon: '💰', bg: 'blue-bg',  title: 'Direct Deposit',      meta: 'Yesterday · Income',  amt: '+$4,600', cls: 'pos' },
   { icon: '⛽', bg: 'amber-bg', title: 'Shell Gas Station',   meta: 'May 4 · Transport',   amt: '−$62.50', cls: 'neg' },
 ]

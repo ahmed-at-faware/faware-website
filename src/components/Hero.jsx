@@ -170,7 +170,7 @@ export default function Hero() {
                   <div className="ph-stat-div" />
                   <div className="ph-stat">
                     <p>Saved</p>
-                    <h5 className="green">$1,240</h5>
+                    <h5 className="accent">$1,240</h5>
                   </div>
                 </div>
 
