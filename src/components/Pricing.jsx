@@ -1,121 +1,183 @@
-import { useEffect, useRef } from 'react'
-
-const CheckIcon = () => (
-  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg>
-)
-
-const plans = [
-  {
-    name: 'Starter',
-    price: '0',
-    desc: 'For individuals just getting started with budgeting. No payment info required.',
-    popular: false,
-    features: [
-      { label: '1 user account',           active: true  },
-      { label: 'Up to 3 bank connections',  active: true  },
-      { label: 'Monthly budget tracking',   active: true  },
-      { label: '2 savings goals',           active: true  },
-      { label: 'Family member invites',     active: false },
-      { label: 'Investment tracking',       active: false },
-    ],
-    cta: 'Get started free',
-    ctaStyle: 'btn-plan btn-plan-outline',
-  },
-  {
-    name: 'Family',
-    price: '9',
-    desc: 'The full Faware experience for your whole household. Everything you need to manage money together.',
-    popular: true,
-    features: [
-      { label: 'Up to 6 family members',         active: true },
-      { label: 'Unlimited bank connections',      active: true },
-      { label: 'Shared family dashboard',         active: true },
-      { label: 'Unlimited savings goals',         active: true },
-      { label: 'Investment tracking',             active: true },
-      { label: 'Spending reports & alerts',       active: true },
-    ],
-    cta: 'Start free trial',
-    ctaStyle: 'btn-plan btn-plan-solid',
-  },
-  {
-    name: 'Wealth',
-    price: '19',
-    desc: 'For families with complex finances — multiple income streams, investments, and estate planning needs.',
-    popular: false,
-    features: [
-      { label: 'Everything in Family',        active: true },
-      { label: 'Tax optimization insights',   active: true },
-      { label: 'Net worth projections',       active: true },
-      { label: 'Estate & will planning tools',active: true },
-      { label: 'Priority email support',      active: true },
-      { label: 'Quarterly financial review',  active: true },
-    ],
-    cta: 'Start free trial',
-    ctaStyle: 'btn-plan btn-plan-outline',
-  },
-]
-
 export default function Pricing() {
-  const refs = useRef([])
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') }),
-      { threshold: 0.1 }
-    )
-    refs.current.forEach(el => el && observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <section className="pricing" id="pricing">
-      <div className="section-inner">
-        <div className="pricing-header">
-          <span className="section-kicker">Pricing</span>
-          <h2 className="section-heading">Simple, honest pricing</h2>
-          <p className="section-sub" style={{ margin: '0 auto' }}>
-            No hidden fees. No upsells. Cancel anytime — we'd rather earn your trust than lock you in.
-          </p>
-        </div>
-
-        <div className="plans">
-          {plans.map((p, i) => (
-            <div
-              key={p.name}
-              className={`plan fade-up${p.popular ? ' popular' : ''}`}
-              ref={el => (refs.current[i] = el)}
-              style={{ transitionDelay: `${i * 0.08}s` }}
+<section
+              className="relative bg-background border-t-2 border-foreground py-20 sm:py-28 overflow-hidden"
             >
-              {p.popular && <div className="popular-badge">Most Popular</div>}
-
-              <div>
-                <div className="plan-name">{p.name}</div>
-                <div className="plan-price">
-                  <span className="dollar">$</span>
-                  <span className="amount">{p.price}</span>
-                  <span className="period">/ mo</span>
+              <div
+                className="absolute -top-20 right-0 size-[420px] rounded-full bg-violet-200/30 blur-3xl pointer-events-none"
+              ></div>
+              <div className="relative trypost-container px-6">
+                <div className="max-w-3xl mx-auto text-center mb-14 space-y-4">
+                  <span
+                    className="inline-flex items-center gap-1.5 text-[11px] font-black uppercase tracking-widest text-foreground border-2 border-foreground bg-pink-200 px-3 py-1 rounded-md shadow-2xs -rotate-1"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="tabler-icon tabler-icon-users size-3.5"
+                    >
+                      <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+                      <path
+                        d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"
+                      ></path>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                      <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
+                    </svg>
+                    Who&#39;s it for?</span
+                  >
+                  <h2 className="h2 text-foreground">
+                    Whether you post for yourself or for 30 brands
+                  </h2>
+                  <svg
+                    className="mx-auto h-3 w-40 text-violet-400"
+                    viewBox="0 0 200 12"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M 5 6 Q 25 0, 50 6 T 100 6 T 150 6 T 195 6"></path>
+                  </svg>
+                  <p className="text-muted-foreground text-lg text-balance">
+                    Same calendar, different scale. From a solo creator to a
+                    growing startup to an agency juggling 30 brands.
+                  </p>
+                </div>
+                <div
+                  className="grid md:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto"
+                >
+                  {/* [ */}<a
+                    href="/en/use-cases/creators"
+                    className="bg-pink-100 group relative flex flex-col rounded-2xl border-2 border-foreground p-6 sm:p-7 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
+                    ><div
+                      className="inline-flex size-12 items-center justify-center rounded-lg border-2 border-foreground bg-card shadow-2xs mb-5"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.25"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="tabler-icon tabler-icon-sparkles text-rose-600 size-6"
+                      >
+                        <path
+                          d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <span
+                      className="text-[10px] font-black uppercase tracking-widest text-foreground/60 mb-1"
+                      >Solo &amp; freelancer</span
+                    >
+                    <h3
+                      className="text-2xl font-bold tracking-tight text-foreground mb-3"
+                    >
+                      Creators
+                    </h3>
+                    <p className="text-sm text-foreground/75 leading-relaxed">
+                      Batch a week of content on Sunday, queue it across
+                      Instagram, X and TikTok in one calendar, ship the rest of
+                      the week without opening five apps.
+                    </p></a
+                  ><a
+                    href="/en/use-cases/teams"
+                    className="bg-sky-100 group relative flex flex-col rounded-2xl border-2 border-foreground p-6 sm:p-7 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
+                    ><div
+                      className="inline-flex size-12 items-center justify-center rounded-lg border-2 border-foreground bg-card shadow-2xs mb-5"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.25"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="tabler-icon tabler-icon-users-group text-blue-700 size-6"
+                      >
+                        <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                        <path
+                          d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1"
+                        ></path>
+                        <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                        <path d="M17 10h2a2 2 0 0 1 2 2v1"></path>
+                        <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                        <path d="M3 13v-1a2 2 0 0 1 2 -2h2"></path>
+                      </svg>
+                    </div>
+                    <span
+                      className="text-[10px] font-black uppercase tracking-widest text-foreground/60 mb-1"
+                      >Brands &amp; startups</span
+                    >
+                    <h3
+                      className="text-2xl font-bold tracking-tight text-foreground mb-3"
+                    >
+                      Teams
+                    </h3>
+                    <p className="text-sm text-foreground/75 leading-relaxed">
+                      Designer drops the visual, copywriter writes the caption,
+                      both edit the same post live. Approvals replace email
+                      threads. Brand kit keeps voice and colors consistent.
+                    </p></a
+                  ><a
+                    href="/en/use-cases/agencies"
+                    className="bg-violet-100 group relative flex flex-col rounded-2xl border-2 border-foreground p-6 sm:p-7 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
+                    ><div
+                      className="inline-flex size-12 items-center justify-center rounded-lg border-2 border-foreground bg-card shadow-2xs mb-5"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.25"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="tabler-icon tabler-icon-building-store text-violet-700 size-6"
+                      >
+                        <path d="M3 21l18 0"></path>
+                        <path
+                          d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4"
+                        ></path>
+                        <path d="M5 21l0 -10.15"></path>
+                        <path d="M19 21l0 -10.15"></path>
+                        <path
+                          d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"
+                        ></path>
+                      </svg>
+                    </div>
+                    <span
+                      className="text-[10px] font-black uppercase tracking-widest text-foreground/60 mb-1"
+                      >Multiple clients</span
+                    >
+                    <h3
+                      className="text-2xl font-bold tracking-tight text-foreground mb-3"
+                    >
+                      Agencies
+                    </h3>
+                    <p className="text-sm text-foreground/75 leading-relaxed">
+                      One workspace per client, separate brand kits, per-client
+                      reviewers. Switch context in one click instead of logging
+                      in and out of 15 dashboards.
+                    </p></a
+                  >{/* ] */}
                 </div>
               </div>
-
-              <p className="plan-desc">{p.desc}</p>
-              <div className="plan-divider" />
-
-              <div className="plan-features">
-                {p.features.map(f => (
-                  <div key={f.label} className={`plan-feat${!f.active ? ' muted' : ''}`}>
-                    <CheckIcon />
-                    {f.label}
-                  </div>
-                ))}
-              </div>
-
-              <div className="plan-cta">
-                <button className={p.ctaStyle}>{p.cta}</button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
+            </section>
+  );
 }
